@@ -24,4 +24,19 @@ func main(){
 	fmt.Println("ToLower:",strings.ToLower(str))
 	//×ª´óÐ´
 	fmt.Println("ToUpper:",strings.ToUpper(str))
+	
+	
+	
+	//Êä³ö
+	/*
+	HasPrefix:  true
+	HasSuffix:  true
+	Index: 1
+	Join: hello world-b-c
+	Repeat: hello worldhello world
+	Replace: eello world
+	Split: [hello world]
+	ToLower: hello world
+	ToUpper: HELLO WORLD
+	*/
 }
