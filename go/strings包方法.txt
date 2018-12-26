@@ -24,9 +24,14 @@ func main(){
 	fmt.Println("ToLower:",strings.ToLower(str))
 	//×ª´óÐ´
 	fmt.Println("ToUpper:",strings.ToUpper(str))
-	
-	
-	
+	//È¥µô×Ö·û´®Ê×Î²¿Õ°××Ö·û
+	fmt.Println("TrimSpace:",strings.TrimSpace(str))
+	//È¥µô×Ö·û´®Ê×Î²h×Ö·û
+	fmt.Println("Trim:",strings.Trim(str,"h"))
+	//È¥µô×Ö·û´®Ê×h×Ö·û
+	fmt.Println("TrimLeft:",strings.TrimLeft(str,"h"))
+	//È¥µô×Ö·û´®Î²d×Ö·û
+	fmt.Println("TrimRight:",strings.TrimRight(str,"d"))
 	//Êä³ö
 	/*
 	HasPrefix:  true
@@ -38,5 +43,9 @@ func main(){
 	Split: [hello world]
 	ToLower: hello world
 	ToUpper: HELLO WORLD
+	TrimSpace: hello world
+	Trim: ello world
+	TrimLeft: ello world
+	TrimRight: hello worl
 	*/
 }
