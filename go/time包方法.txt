@@ -1,0 +1,73 @@
+package main
+
+import (
+	"fmt"
+	"math"
+	"reflect"
+	"time"
+)
+
+func add()  {
+	//计算当前时间往前的时间
+	d, _:= time.ParseDuration("-24h")
+	now :=time.Now()
+	//昨天的时间
+	fmt.Println(now.Add(d).Format("2006-01-02 15:04:05"))
+	//一周以前
+	fmt.Println(now.Add(d *7).Format("2006-01-02 15:04:05"))
+	//一个月以前
+	fmt.Println(now.Add(d *30).Format("2006-01-02 15:04:05"))
+	
+}
+func sub() {
+	//计算时间差
+	dt1 := time.Date(2018, 1, 10, 23, 59, 22, 100, time.Local)
+	dt2 := time.Date(2018, 1, 10, 23, 59, 22, 100, time.Local)
+	fmt.Println(dt1.Sub(dt2))
+	//计算时间差天数
+	dt3 := time.Date(dt1.Year(), dt1.Month(), dt1.Day(), 0, 0, 0, 0, time.Local)
+	dt4 := time.Date(dt2.Year(), dt2.Month(), dt2.Day(), 0, 0, 0, 0, time.Local)
+	fmt.Println(int(math.Ceil(dt3.Sub(dt4).Hours() / 24)))
+}
+func compcre()  {
+	//比较两个时间的大小
+	time1 := "2015-03-22 08:50:29"
+	time2 := "2015-03-21 09:04:25"
+	//先把时间字符串格式化成相同的时间类型
+	t1, err := time.Parse("2006-01-02 15:04:05", time1)
+	t2, err := time.Parse("2006-01-02 15:04:05", time2)
+	if err == nil && t1.Before(t2) {
+		//处理逻辑
+		fmt.Println("true")
+	}else{
+		fmt.Println("fales")
+	}
+}
+func main(){
+	//获取时间戳 秒
+	fmt.Println(time.Now().Unix())
+	//获取时间戳 纳秒
+	fmt.Println(time.Now().UnixNano())
+	//格式化一个时间类型
+	str := time.Now().Format("2006-01-02 15:04:05")
+	fmt.Println(str)
+	//查看一个变量的类型
+	fmt.Println(reflect.TypeOf(str))
+	//获取当前秒
+	fmt.Println(time.Now().Second())
+	//获取当前分钟
+	fmt.Println(time.Now().Minute())
+	//获取当前小时
+	fmt.Println(time.Now().Hour())
+	//获取当前日期日
+	fmt.Println(time.Now().Day())
+	//获取当前日期月
+	fmt.Println(time.Now().Month())
+	//获取当前日期年
+	fmt.Println(time.Now().Year())
+	//获取当天的日期
+	fmt.Println(time.Now().Date())
+	add()
+	sub()
+	compcre()
+}
