@@ -1,0 +1,37 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+//解析bool
+func process(str string){
+	a,_ :=strconv.ParseBool(str)
+	fmt.Println(a)
+}
+
+func main(){
+	//字符串转数字
+	i, err := strconv.Atoi("8888")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println((i+10))
+	//数字转字符串
+	s := strconv.Itoa(333)
+	s += "3"
+	fmt.Println(s)
+
+
+	// ParseBool 将字符串转换为布尔值
+	// 它接受真值：1, t, T, TRUE, true, True
+	// 它接受假值：0, f, F, FALSE, false, False.
+	// 其它任何值都返回一个错误
+	process("f")
+	process("t")
+	process("0")
+	process("1")
+	process("ffsfsf")
+	// FormatBool 将布尔值转换为字符串 "true" 或 "false"
+	fmt.Println(strconv.FormatBool(0 > 1))
+}
