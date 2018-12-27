@@ -1,0 +1,49 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func first(){
+	//标准for循环
+	for i :=0;i<=5;i++{
+		fmt.Println(i)
+	}
+}
+func second()  {
+	//遍历数组for循环
+	str :="abcd"
+	for v,a := range str {
+		fmt.Printf("%d,%c\n",v,a)
+	}
+	//当不需要下标的时候可以这样
+	//for _,a := range str {
+	//	fmt.Printf("%c\n",a)
+	//}
+
+}
+func third(){
+	//死循环
+	for {
+		time.Sleep(time.Second)
+		break
+	}
+}
+func fourth()  {
+	//了解即可 利用label 实现循环
+	a :=1
+	EXIT:
+	if a==4 {
+		return
+	}
+		fmt.Println(a)
+	a +=1
+	goto EXIT
+}
+func main(){
+	first()
+	second()
+	third()
+	fourth()
+}
